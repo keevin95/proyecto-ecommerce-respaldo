@@ -1,0 +1,12 @@
+<IfModule mod_rewrite.c>
+RewriteEngine On
+ErrorDocument 404 http://localhost/master-php/proyecto-ecommerce/error/
+
+#No se puede cargar otra cosa que no sea directorio o ficheros!
+RewriteCond %{SCRIPT_FILENAME} !-d
+RewriteCond %{SCRIPT_FILENAME} !-f
+
+#En el $1 ira lo del primer parentesis, y en dolar $2 lo del otro
+
+RewriteRule ^(.*)/(.*) index.php?controller=$1&action=$2
+</IfModule>
